@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Transforms;
 using UnityEngine;
 using Unity.Mathematics;
-using Unity.Rendering;
-using System;
 
-public partial struct MyRotationSpeedSystem : ISystem
+public partial struct EnemySystem : ISystem
 {
 
     [BurstCompile]
@@ -18,7 +14,7 @@ public partial struct MyRotationSpeedSystem : ISystem
 
         foreach (var (transform, speed) in SystemAPI.Query<
         RefRW<LocalTransform>,
-        RefRW<Rotate>
+        RefRW<Enemy>
         >())
         {
             if (Mathf.Abs(transform.ValueRW.Position.x) > 12)
@@ -26,12 +22,15 @@ public partial struct MyRotationSpeedSystem : ISystem
                 speed.ValueRW.speed = -speed.ValueRO.speed;
 
             }
+
             transform.ValueRW.Position = new float3
             {
                 x = transform.ValueRW.Position.x + speed.ValueRO.speed * deltaTime,
                 y = transform.ValueRW.Position.y,
                 z = transform.ValueRW.Position.z
             };
+
+            transform.ValueRW.RotateY(1 * deltaTime);
         }
     }
 
