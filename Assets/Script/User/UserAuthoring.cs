@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class UserAuthoring : MonoBehaviour
 {
-    public float _health;
     public GameObject _bulletPrefab;
 }
 
@@ -14,7 +13,6 @@ public class UserBaker : Baker<UserAuthoring>
         var entity = GetEntity(TransformUsageFlags.Dynamic);
         AddComponent(entity, new User
         {
-            health = authoring._health,
             bulletPrefab = GetEntity(authoring._bulletPrefab, TransformUsageFlags.Dynamic)
         });
     }
