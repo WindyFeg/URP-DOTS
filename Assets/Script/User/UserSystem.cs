@@ -37,6 +37,8 @@ public partial struct UserSystem : ISystem
             {
                 // set bullet position to user position
                 Entity bulletPf = user.ValueRO.bulletPrefab;
+
+                //* SetComponentData is a way to set the component to the entity.
                 state.EntityManager.SetComponentData(bulletPf, new LocalTransform
                 {
                     Position = transform.ValueRO.Position,

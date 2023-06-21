@@ -6,6 +6,7 @@ using UnityEngine;
 public struct Bullet : IComponentData
 {
     public float speed;
+    public float damage;
 }
 [BurstCompile]
 public partial struct MoveBullet : IJobEntity
