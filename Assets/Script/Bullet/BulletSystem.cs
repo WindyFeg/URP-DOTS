@@ -78,3 +78,4 @@ public partial struct BulletSystem : ISystem
     }
 
 }
+

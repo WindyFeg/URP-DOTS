@@ -7,4 +7,5 @@ public struct GameConfig : IComponentData
 {
     public float _level;
     public float _score;
+    public float _bulletDamage;
 }

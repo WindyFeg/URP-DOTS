@@ -21,13 +21,13 @@ namespace Systems
         {
             var ecb = new EntityCommandBuffer(Allocator.TempJob);
 
+            var gameConfigEntity = SystemAPI.GetSingletonEntity<GameConfig>();
             //* Dependency is a way to make sure that the job is finished before the next job is started.
             state.Dependency = new JobCheckCollision
             {
                 ecb = ecb,
                 enemyLookup = state.GetComponentLookup<Enemy>(),
                 bulletLookup = state.GetComponentLookup<Bullet>(),
-
             }.Schedule(
                 //* SimulationSingleton is a way to get the physics world.
                 SystemAPI.GetSingleton<SimulationSingleton>(),
@@ -53,10 +53,11 @@ namespace Systems
         public ComponentLookup<Enemy> enemyLookup { get; set; }
         public ComponentLookup<Bullet> bulletLookup { get; set; }
 
-        public float _dame;
+        // public float _dame;
 
         public void Execute(TriggerEvent triggerEvent)
         {
+
             var isBulletHitEnemy = (bulletLookup.HasComponent(triggerEvent.EntityA) && enemyLookup.HasComponent(triggerEvent.EntityB)) || (bulletLookup.HasComponent(triggerEvent.EntityB) && enemyLookup.HasComponent(triggerEvent.EntityA));
 
             if (isBulletHitEnemy)

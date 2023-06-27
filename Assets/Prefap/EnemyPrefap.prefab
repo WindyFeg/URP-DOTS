@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7893792207721179171}
   - component: {fileID: 7387802328654380894}
   - component: {fileID: 7521318707369471815}
+  - component: {fileID: 6996739635918844381}
   m_Layer: 0
   m_Name: EnemyPrefap
   m_TagString: Untagged
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088a23e7c9ee1324f80b9ba14cc8fa10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hp: 20
+  _hp: 10
   _armor: 0
 --- !u!65 &7387802328654380894
 BoxCollider:
@@ -186,3 +187,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6996739635918844381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2758214685925754401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e855eef6bcb9c6e4e847e6d42b3bcd48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  _material: {fileID: 2100000, guid: 2888ba17cd5d94b4e93c6ae701f05463, type: 2}

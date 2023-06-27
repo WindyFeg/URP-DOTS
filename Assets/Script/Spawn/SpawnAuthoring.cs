@@ -1,4 +1,5 @@
 using Unity.Entities;
+using Unity.Rendering;
 using UnityEngine;
 
 public class SpawnAuthoring : MonoBehaviour
@@ -10,6 +11,8 @@ public class SpawnAuthoring : MonoBehaviour
 
     public float _nextSpawnTime;
     public float _spawnRate;
+
+    public Material _material;
 }
 
 public class SpawnBaker : Baker<SpawnAuthoring>
@@ -27,5 +30,7 @@ public class SpawnBaker : Baker<SpawnAuthoring>
             nextSpawnTime = authoring._nextSpawnTime,
             spawnRate = authoring._spawnRate
         });
+
+
     }
 }
