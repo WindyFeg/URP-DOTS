@@ -7,7 +7,7 @@ public struct Spawn : IComponentData
     public Entity enemyEntity;
     public float3 spawnPosition;
 
-    public float spawnNumber;
+    public bool canSpawn;
 
     public float nextSpawnTime;
     public float spawnRate;

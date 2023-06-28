@@ -6,7 +6,6 @@ using UnityEngine;
 public class MatAndMesAuthoring : MonoBehaviour
 {
     public Mesh _mesh;
-
     public Material _material;
 }
 
