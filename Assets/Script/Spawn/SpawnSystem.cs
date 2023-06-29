@@ -28,8 +28,6 @@ public partial struct SpawnSystem : ISystem
             {
                 ProcessSpawn(ref ecb, spawner);
             }
-            //Level up
-            // LevelUp(ref ecb, spawner);
         }
 
 

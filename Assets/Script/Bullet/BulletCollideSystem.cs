@@ -64,7 +64,9 @@ namespace Systems
             {
                 if (enemyLookup.HasComponent(triggerEvent.EntityA))
                 {
+
                     ecb.AddComponent(triggerEvent.EntityB, new Destroy { });
+                    ecb.AddComponent(triggerEvent.EntityA, new AddScore());
                     ecb.AddComponent(triggerEvent.EntityA, new Damage
                     {
                         Value = 5
@@ -74,6 +76,7 @@ namespace Systems
                 if (enemyLookup.HasComponent(triggerEvent.EntityB))
                 {
                     ecb.AddComponent(triggerEvent.EntityA, new Destroy { });
+                    ecb.AddComponent(triggerEvent.EntityB, new AddScore());
                     ecb.AddComponent(triggerEvent.EntityB, new Damage
                     {
                         Value = 5
