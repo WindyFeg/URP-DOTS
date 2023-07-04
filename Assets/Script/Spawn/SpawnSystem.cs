@@ -76,6 +76,21 @@ public partial struct SpawnSystem : ISystem
                     }
                     break;
                 default:
+                    for (int i = -5; i <= 5; i++)
+                    {
+                        var pX = i / 2.5f;
+                        float3 position = new float3
+                        {
+                            x = pX,
+                            y = pX * pX,
+                            z = 0
+                        };
+                        ecb.SetComponent(i,
+                            newEnemyEntity,
+                            LocalTransform.FromPosition(position).WithScale(0.5f)
+                            );
+                        ecb.Instantiate(i, newEnemyEntity);
+                    }
                     break;
             }
         }
@@ -91,6 +106,9 @@ public partial struct SpawnSystem : ISystem
 
     public void OnCreate(ref SystemState state)
     {
+        //! Only run this system when StartCommand is called
+        state.RequireForUpdate<StartCommand>();
+
         componentQuery = new EntityQueryBuilder(Allocator.Temp)
             .WithAll<LocalTransform>()
             .WithAll<Spawn>()

@@ -16,6 +16,9 @@ public partial struct EnemySystem : ISystem
 
     public void OnCreate(ref SystemState state)
     {
+        //! Only run this system when StartCommand is called
+        state.RequireForUpdate<StartCommand>();
+
         deltaTime = SystemAPI.Time.DeltaTime;
 
         //* Enemy Query

@@ -12,6 +12,11 @@ public partial struct BulletSystem : ISystem
     [BurstCompile]
     public void OnCreate(ref SystemState state)
     {
+        //! Only run this system when StartCommand is called
+        state.RequireForUpdate<StartCommand>();
+
+
+
         deltaTime = SystemAPI.Time.DeltaTime;
         bulletQuery = new EntityQueryBuilder(Allocator.Temp)
     .WithAllRW<Bullet>()
